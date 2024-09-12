@@ -1,20 +1,59 @@
 <!DOCTYPE html>
 <html lang="en" style="display: table; margin: auto;">
 <head>
-  <h1>Hei jeg heter Tor Ånen</h1>
-  <h2>Jeg liker å spille Volleyball</h2>
+
   <meta charset="UTF-8">
   <title>Submission 2.1</title>
   <link rel="stylesheet" href="test.css">
 </head>
 
 <body>
+
+    <h1>user profile</h1>
+
+    <div class = "profile">
+
+      <h2 id = "username"> Username: TorFisk</h2>
+      <p id= "bio"> Bio: hi, I like to play volleyball.</p>
+      <ul class = "profile-details">
+        <li>Age: <span id = "age" >25</span></li>
+        <li>Accoun Active: <span id = "status">yes</span></li>
+        <li>Average Rating: <span id = "rating">4.89</span></li>
+      </ul>
+    </div>
+
 <script>
   /* write your code below this line  🙂 */
-let x = null;
-let y = x + 1;
-const w = 2;
-i = y + w;
+let x = 2;
+let y = x + 2;
+let z = 1, i = 3, v = 4;
+const null = null;
+
+let username = "TorFisk";
+let bio = "Hi, I like to play volleyball.";
+let age = 19;
+let isActive = true;
+let averageRating = 4.89
+
+let user = {
+  basic_info: {
+    username: username,
+    age: age,
+  },
+  status: {
+    isActive: isActive,
+    averageRating: averageRating
+  },
+};
+
+document.getElementById("username").innerText = "username: " + user.basic_info.username;
+document.getElementById("bio").innerText = "bio: " + Bio;
+document.getElementById("age").innerText = user-basic_info.age;
+document.getElementById("status").innerText = user.status.isActive ? "yes" : "no";
+document.getElementById("rating").innerText = user.status.averageRating;
+
+valuePI = 3.14;
+
 
 </script>
 </body>
