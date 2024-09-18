@@ -4,12 +4,15 @@ initPrintOut(document.getElementById("txtOut"));
 
 printOut("--- Part 1 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
-printOut("Replace this with you answer!");
+const y = 2 +3 * (2-4) * 6;
+printOut("2 +3 * (2-4) * 6 = " + y.toString());
 printOut(newLine);
 
 printOut("--- Part 2 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
-printOut("Replace this with you answer!");
+let toinches = 25.34 * 39.26
+Math.ceil()
+printOut("25 meters and 34 centimeters is " + toinches.toString() + " in inches");
 printOut(newLine);
 
 printOut("--- Part 3 ----------------------------------------------------------------------------------------------");
