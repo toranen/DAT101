@@ -12,31 +12,53 @@
     <ol>
       <li>Where should you use constants, and where should you use variables? Can they all be constants?</li>
       <p>
-				[Replace this with you answer]
+				[You should use constants where you don't want the value to change, and a variables (let) when you have change tha value. It can be in a loop, profile data and more]
 			</p>
       <li>How do parentheses affect the arithmetic outcome of an expression?</li>
       <p>
-				[Replace this with you answer]
+				[The parentheses allow you to change the order of which the program runs an expression. Like how you do parentheses first in math.]
 			</p>
       <li>How do we limit floating-point numbers to a given number of decimals?</li>
       <p>
-				[Replace this with you answer]
+				[You can do this in two ways. The first is to use the ".toFixed()" method (type the number of digits inside the parentheses.). The second method is to use ".toPrecision()".
+        Here you limit the whole number, not just the decimals.
+        let num = 3.14159; let precisionNum = num.toPrecision(4);
+        if you console.log(num) you would get 3.141.
+        Both of these methods returns as a string.]
 			</p>
       <li>How can we compare two floating-point values to see if they are equal (is 12.199999 the same as 12.2)?</li>
       <p>
-				[Replace this with you answer]
+				[If you make a premise that says something like:
+        ((12.2 - 12.199999) < 0.01);
+        you would get "True" and the program sees them as the same.
+        (you sent the answer to this question on Discord)]
 			</p>
       <li>What do comparison operators return, and how can we check if they are FALSE or TRUE?</li>
       <p>
-				[Replace this with you answer]
+				[the comparison operators "==" and "===" does almost the same thing. 
+        The "==" operator checks if the statement is true after a type conversion. 5 == "5" returns as true.
+        The "===" operator checks if the statement is true without a type conversion. 5 === "5" returns as false.
+        There are more operators such as "!=", "!==", "<", ">", "<=" and ">=". 
+        You can check if the statement is true or false by using: 
+        an if statement
+
+        a direct comparison. let result = 10 < 5;
+        console.log(result). the output is "false". 
+
+        you can also use Boolean() to check truthiness.]
 			</p>
       <li>How does the Math.random() function work, and what can it be used for?</li>
       <p>
-				[Replace this with you answer]
+				[The Math.random() gives a random floating-number from 0 up to 1, but not 1.
+        you can also get an integer by using: 
+        let randomInt = Math.floor(Math.random() * (Max - Min + 1)) + Min;
+        This method generates an integer between two values (Inclusive).
+        The Math.random() function can be used for many things such as a dice roll, to generate a difference in "particles" if you develop games, and more.]
 			</p>
       <li>What is modulus (%), and when do we need this operator in mathematical operations?</li>
       <p>
-				[Replace this with you answer]
+				[Modulus (%) returns the remainder after division. 5 % 2 would return 1.
+        This is useful to check if a number is even or odd, test divisibility, cycle trough sequences, or alternate between states]
 			</p>
     </ol>
 		<script type="module" src="./task_2-2.mjs" defer></script>
