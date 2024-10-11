@@ -127,14 +127,30 @@ printOut("--- Part 5 -----------------------------------------------------------
 
 console.log("v Part 5 v");
 
-function temperatureConversion(){
+function tempConvert(temperature, type){
+    let C, F, K
 
-
+    if (type == "C"){
+        F = Math.floor((temperature * 9/5) + 32);
+        K = Math.floor(temperature + 273.15);
+        printOut(`${temperature}°C is ${F}°F and ${K}K`)
+    } else if (type == "F"){
+        C = Math.floor((temperature - 32) * 5/9);
+        K = Math.floor((temperature - 32) * 5/9 + 273.15);
+        printOut(`${temperature}°F is ${C}°C and ${K}K`);
+    } else if (type == "K"){
+        C = Math.floor(temperature - 273.15);
+        F = Math.floor((temperature - 273.15) * 9/5 + 32);
+        printOut(`${temperature}K is ${C}°C and ${F}°F`);
+    } else {
+        printOut(`Invalid temperature type. Use 'C' for Celsius, 'F' for Fahrenheit, or 'K' for Kelvin.`)
+    }
 }
 
-/* hva jeg skal gjoere: 
-få temperaturen i integer, 
-få temperatur id (bruk liste, for aa saa sjekke om iden er lik og deretter fortsette programmet.) */
+const temp = parseInt(prompt(`Please enter the temperature: `));
+const tempId = (prompt(`Please enter "C" for celsius, "F" for fahrenheit or "K" for kelvin: `));
+
+tempConvert(temp, tempId);
 
 printOut(newLine);
 
