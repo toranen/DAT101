@@ -77,11 +77,11 @@ printOut(newLine);
 
 printOut("--- Part 3 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
-/*
-console.log("v Part 3 v");
 
+console.log("v Part 3 v");
+/*
 function circleInfo(){
-    const pi = 3.14159265359;
+    const pi = Math.PI;
     const radius = parseInt(prompt("Enter the radius of the circle in cm: "));
     const diameter = radius * 2;
     const circumference = (2 * pi * radius).toFixed(3);
