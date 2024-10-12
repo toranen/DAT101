@@ -237,7 +237,7 @@ function extendString(text, maxSize, char, insertBefore) {
         }
     }
 
-    console.log(text);
+    printOut(text);
     return text;
 }
 
@@ -254,6 +254,39 @@ printOut("--- Part 9 -----------------------------------------------------------
 /* Put your code below here!*/
 
 console.log("v Part 9 v");
+
+function testMathExpressions() {
+    let leftStart = 1;
+
+    for (let line = 1; line <= 200; line++) {
+        let leftLength = line + 1;
+        let rightLength = line;
+        
+
+        let leftSum = 0;
+        for (let i = leftStart; i < leftStart + leftLength; i++) {
+            leftSum += i;
+        }
+
+        let rightSum = 0;
+        let rightStart = leftStart + leftLength;
+        for (let i = rightStart; i < rightStart + rightLength; i++) {
+            rightSum += i;
+        }
+
+        if (leftSum !== rightSum) {
+            printOut(`Mismatch on line ${line}: Left sum = ${leftSum}, Right sum = ${rightSum}`);
+            return;
+        }
+
+        leftStart = rightStart + rightLength;
+        console.log()
+    }
+
+    printOut("Maths fun!");
+}
+
+testMathExpressions();
 
 printOut(newLine);
 
