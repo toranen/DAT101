@@ -126,7 +126,7 @@ printOut("--- Part 5 -----------------------------------------------------------
 /* Put your code below here!*/
 
 console.log("v Part 5 v");
-
+/*
 function tempConvert(temperature, type){
     let C, F, K
 
@@ -151,14 +151,41 @@ const temp = parseInt(prompt(`Please enter the temperature: `));
 const tempId = (prompt(`Please enter "C" for celsius, "F" for fahrenheit or "K" for kelvin: `));
 
 tempConvert(temp, tempId);
-
+*/
 printOut(newLine);
 
 printOut("--- Part 6 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
 
 console.log("v Part 6 v");
+/*
+function price(grossAmount, taxGroup){
+    let vat = 0;
+    
+    if (taxGroup == "normal"){
+        vat = 25;
+        printOut(`The net price is ${grossAmount} and the price after Tax is ${(100 * grossAmount) / (vat + 100)}`);
+    } else if (taxGroup == "food"){
+        vat = 15;
+        printOut(`The net price is ${grossAmount} and the price after Tax is ${(100 * grossAmount) / (vat + 100)}`);
+    } else if (taxGroup == "hotel" || taxGroup == "transport" || taxGroup == "cinema"){
+        vat = 10;
+        printOut(`The net price is ${grossAmount} and the price after Tax is ${(100 * grossAmount) / (vat + 100)}`);
+    } else if (taxGroup == "goblins") {
+        vat = NaN
+        printOut(`The net price is ${grossAmount} and the price after Tax is ${(100 * grossAmount) / (vat + 100)}`);
+    } else {
+        return "Unknown VAT group!"
+    }
 
+    return (100 * grossAmount) / (vat + 100);
+}
+
+const grossAmount = prompt("what is the gross amount? ")
+const taxGroup = prompt("What is the tax group? ")
+
+price(grossAmount, taxGroup);
+*/
 printOut(newLine);
 
 printOut("--- Part 7 ----------------------------------------------------------------------------------------------");
@@ -166,12 +193,60 @@ printOut("--- Part 7 -----------------------------------------------------------
 
 console.log("v Part 7 v");
 
+function speedDistanceTime(speed, time, distance){
+    if([speed, time, distance].filter(element => element == "").length > 1){
+        printOut("NaN");
+       return
+    }
+
+    if (speed == ""){
+        speed = distance / time;
+    }   else if (time == ""){
+        time = distance / speed;
+    }   else if (distance == ""){
+        distance = speed * time;
+    }   else{
+        console.log(NaN)
+    }
+    console.log(speed, time, distance);
+    printOut(`The speed is ${speed}, the time is ${time}, and the distance is ${distance}.`);
+} 
+
+const speed = prompt("speed: ");
+const time = prompt("time: ");
+const distance = prompt("distance");
+
+console.log(speedDistanceTime(speed, time, distance));
+
 printOut(newLine);
 
 printOut("--- Part 8 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
 
 console.log("v Part 8 v");
+
+function extendString(text, maxSize, char, insertBefore) {
+    if (text.length < maxSize) {
+        let charsToInsert = maxSize - text.length;
+        let insertionString = char.repeat(charsToInsert);
+
+        if (insertBefore) {
+            text = insertionString + text;
+        } else {
+            text = text + insertionString;
+        }
+    }
+
+    console.log(text);
+    return text;
+}
+
+const string1 = prompt("string 1");;
+
+extendString(string1, 10, "-", true);
+extendString(string1, 12, "-", false);
+extendString(string1, 8, "-", true);
+extendString(string1, 10, "-", false);
 
 printOut(newLine);
 
