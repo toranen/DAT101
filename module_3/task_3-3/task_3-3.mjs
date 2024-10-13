@@ -296,4 +296,14 @@ printOut("--- Part 10 ----------------------------------------------------------
 
 console.log("v Part 10 v");
 
+function factorial(x){
+    if (x === 0) return 1;
+    
+    return x * factorial(x - 1);
+}
+
+const numberToFactorial = prompt("number to factorial: ");
+
+printOut(`The factorial of ${numberToFactorial} is ${factorial(parseInt(numberToFactorial))}`);
+
 printOut(newLine);
