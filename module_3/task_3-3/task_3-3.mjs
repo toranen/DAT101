@@ -79,7 +79,7 @@ printOut("--- Part 3 -----------------------------------------------------------
 /* Put your code below here!*/
 
 console.log("v Part 3 v");
-/*
+
 function circleInfo(){
     const pi = Math.PI;
     const radius = parseInt(prompt("Enter the radius of the circle in cm: "));
@@ -95,14 +95,14 @@ function circleInfo(){
 }
 
 circleInfo();
-*/
+
 printOut(newLine);
 
 printOut("--- Part 4 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
 
 console.log("v Part 4 v")
-/*
+
 function rectangleInfo(){
     const width = parseInt(prompt("Enter the width of the rectangle in cm: "));
     const height = parseInt(prompt("Enter the height of the rectangle in cm: "));
@@ -119,14 +119,14 @@ function rectangleInfo(){
 }
 
 rectangleInfo();
-*/
+
 printOut(newLine);
 
 printOut("--- Part 5 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
 
 console.log("v Part 5 v");
-/*
+
 function tempConvert(temperature, type){
     let C, F, K
 
@@ -151,14 +151,14 @@ const temp = parseInt(prompt(`Please enter the temperature: `));
 const tempId = (prompt(`Please enter "C" for celsius, "F" for fahrenheit or "K" for kelvin: `));
 
 tempConvert(temp, tempId);
-*/
+
 printOut(newLine);
 
 printOut("--- Part 6 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
 
 console.log("v Part 6 v");
-/*
+
 function price(grossAmount, taxGroup){
     let vat = 0;
     
@@ -185,7 +185,7 @@ const grossAmount = prompt("what is the gross amount? ")
 const taxGroup = prompt("What is the tax group? ")
 
 price(grossAmount, taxGroup);
-*/
+
 printOut(newLine);
 
 printOut("--- Part 7 ----------------------------------------------------------------------------------------------");
