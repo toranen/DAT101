@@ -6,6 +6,9 @@ printOut("--- Part 1, 2, 3 -----------------------------------------------------
 /* Put your code below here!*/
 printOut("Task 1, 2 and 3");
 let wakeUpTime = 8
+
+printOut(`${wakeUpTime} er et tall`);
+
 if (wakeUpTime <= 7) {
   printOut("I can take the bus to school.");
 } else if (wakeUpTime <= 8) {
