@@ -10,8 +10,28 @@
       <span id="txtOut" style="white-space: nowrap"></span>
     </div>
     <ol>
-      <li>[Write the question here, and copy this for more questions]</li>
-      <p>[Write your answer here, and copy this for more answers]</p>
+      <li>[In part 1, is it possible to solve the problem using a single "for" loop]</li>
+      <p>[Yes it is possible to make two counters in one for loop, but the result is not as pretty as if you were to use two independent for loops]</p>
+
+      <li>[In part 2, can we create what is known as an "infinite" loop within the condition of the "while" loop?
+        Describe what would or would not be necessary to achieve this.]</li>
+        <li>[Provide a thorough explanation of your answer.]</li>
+      <p>[If you wanted to make an infinite loop you would have to make the statement never come true. In this case the statement is true as long as the random number is not equal value or not equal type to 45]</p>
+      <p>[So to make this while loop to never become true, we could remove the "!" from the operator "!==" and make the random number to never be 45.]</p> 
+      <p>[As long as the condition to the while loop is never true it will continue and you get a so called "Memory leak".]</p>
+
+      <li>[Discuss briefly how quickly or slowly a computer might be able to compute this, considering the number of guesses and the time it takes.]</li>
+        <li>[How does the program behave while it is guessing? Can the program perform other tasks concurrently?]</li>
+      <p>[Java script is described as single-threaded. Meaning it can only execute one piece of code at a time. In this while loop, the time it takes to make the statement come true can be as short, and as long amount of time
+        as long as the program is running.]</p>
+      <p>[it is not near impossible for it to never become true, but mathematically it is possible.]</p>
+
+      <li>[Explain the relationship between rows and columns in nested "for" loops. Can we, for instance,
+        change the order,]</li>
+      <li>[considering rows to be innermost or columns to be innermost, or does this not
+          matter?]</li>
+      <p>[You can change the order of rows and columns, but it may affect the performance. The concept of "rows" and "columns" is primarily a matter of how you interpret the data structure you're working with]</p>
+
     </ol>
     <script type="module" src="./task_3-2.mjs" defer></script>
   </body>
