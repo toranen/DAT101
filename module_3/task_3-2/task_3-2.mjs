@@ -13,11 +13,6 @@ for(let count = 10; count >= 1; count--) {
     printOut(count.toString());
 }
 
-for (let count = 1; count <= 10; count++) {
-    console.log(count.toString());      // Ascending part: 1 to 10
-    console.log((11 - count).toString()); // Descending part: 10 to 1
-}
-
 printOut(newLine);
 
 printOut("--- Part 2 ----------------------------------------------------------------------------------------------");
