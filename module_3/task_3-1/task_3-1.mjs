@@ -6,7 +6,6 @@ printOut("--- Part 1, 2, 3 -----------------------------------------------------
 /* Put your code below here!*/
 printOut("Task 1, 2 and 3");
 let wakeUpTime = 8
-
 if (wakeUpTime <= 7) {
   printOut("I can take the bus to school.");
 } else if (wakeUpTime <= 8) {
@@ -16,7 +15,7 @@ if (wakeUpTime <= 7) {
 }
 
 printOut(newLine);
-
+ 
 printOut("--- Part 4, 5 --------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
 
@@ -99,4 +98,5 @@ if (monthName2 === "Mars" || monthName2 === "May") {
   printOut("The art gallery is open");
 }
 
+/*hei*/
 printOut(newLine);
