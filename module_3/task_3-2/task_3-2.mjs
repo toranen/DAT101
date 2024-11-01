@@ -13,6 +13,11 @@ for(let count = 10; count >= 1; count--) {
     printOut(count.toString());
 }
 
+for (let count = 1; count <= 10; count++) {
+    console.log(count.toString());      // Ascending part: 1 to 10
+    console.log((11 - count).toString()); // Descending part: 10 to 1
+}
+
 printOut(newLine);
 
 printOut("--- Part 2 ----------------------------------------------------------------------------------------------");
@@ -195,18 +200,3 @@ printOut(`Throws to get a tower (2 of a kind and 4 of a kind): ${simulateDiceThr
 printOut(`Throws to get Yahtzee (all the same): ${simulateDiceThrows('yahtzee')}`);
 
 printOut(newLine);
-
-
-console.log("Test");
-
-let arr = [3, 5, 7];
-arr.foo = "hello";
-    
-for (var i in arr) {
-  console.log(i); // logs "0", "1", "2", "foo"
-}
-    
-for (var i of arr) {
-  console.log(i); // logs "3", "5", "7"
-  // it doesn't log "3", "5", "7", "hello"
-}
