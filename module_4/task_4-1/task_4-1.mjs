@@ -207,8 +207,7 @@ class TAccount {
                         printOut(`Brukskonto = ${this.#balanceBrukskonto * this.#currency.value}${this.#currency.denomination}.`)
                         printOut(`Sparekonto = ${this.#balanceSparekonto * this.#currency.value}${this.#currency.denomination}.`)
                         break
-                    }
-                    
+                    } 
             }
             case "Pensjonskonto":{
                 console.log("case 3");
