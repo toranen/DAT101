@@ -17,7 +17,7 @@ const accountType = {
 printOut(`${accountType.normal}, ${accountType.saving}, ${accountType.credit}, ${accountType.pension}`)
 printOut(newLine);
 
-printOut("--- Part 2, 3, 4, 5, 6 ----------------------------------------------------------------------------------------------");
+printOut("--- Part 2, 3, 4, 5, 6, 7 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
 
 class TAccount {
@@ -27,7 +27,7 @@ class TAccount {
     #balanceSparekonto;
     #balancePensjonskonto;
     #currency;
-    #withdrawcount;
+    #withdrawCount;
 
     static currencyTypes = {
         NOK: { value: 1.0000, name: "Norske kroner", denomination: "kr" },
@@ -42,12 +42,12 @@ class TAccount {
         THB: { value: 3.3289, name: "Thai baht", denomination: "฿" },
     };
 
-    constructor(initialType, brukskontoBalance, sparekontoBalance, pensjonskontoBalance, withdrawcount) {
+    constructor(initialType, brukskontoBalance, sparekontoBalance, pensjonskontoBalance, withdrawCount) {
         this.#type = initialType;
         this.#balanceBrukskonto = brukskontoBalance || 0;
         this.#balanceSparekonto = sparekontoBalance || 0;
         this.#balancePensjonskonto = pensjonskontoBalance || 0;
-        this.#withdrawcount = withdrawcount || 0;
+        this.#withdrawCount = withdrawCount || 0;
         this.#currency = TAccount.currencyTypes.NOK;
     }
     
@@ -66,7 +66,7 @@ class TAccount {
         this.#currency = newCurrency;
         printOut(`Currency changed to ${currencyCode}. New denomination: ${this.#currency.denomination}`);
 
-        printOut(this.toString(this.#type))
+        printOut(this.toString(this.#type));
     }
 
     getCurrency() {
@@ -88,7 +88,7 @@ class TAccount {
     }
     
     setType(typeA) {
-        if (typeA == "Brukskonto" || typeA == "Sparekonto" || typeA == "Pensjonskonto")
+        if (typeA == "Brukskonto" || typeA == "Sparekonto" || typeA == "Pensjonskonto");
         printOut(`Account is changed from ${this.#type} to ${typeA}.`);
         this.#type = typeA;
     }
@@ -98,111 +98,105 @@ class TAccount {
     }
 
     deposit(aAmount, typeA) {
-        const typeACurrency = TAccount.currencyTypes[typeA]
-        if (!(TAccount.currencyTypes[typeA])){
-            printOut(`Could not read currency`);
-            printOut(`${this.#type}, balance: ${this.#balanceSparekonto}${this.#currency.denomination}`)
-        } else {
-            console.log(typeACurrency)
-            switch (TAccount.currencyTypes[typeA]) {
-            case undefined || "NOK":{
-                console.log("case 2")
-                const depositedAmount = aAmount;
-                if (this.#type == "Sparekonto"){
-                    this.#balanceSparekonto += aAmount;
-                    printOut(`Deposited ${this.formatToMaxFourDecimals(depositedAmount)}kr to ${this.#type}.`);
-                    printOut(`New balance is ${this.formatToMaxFourDecimals(this.#balanceSparekonto * this.#currency.value)}${this.#currency.denomination}.`);
-                    console.log("undefined if")
-                } else if (this.#type == "Brukskonto") {
-                    this.#balanceBrukskonto += aAmount;
-                    printOut(`Deposited ${this.formatToMaxFourDecimals(depositedAmount)}kr to ${this.#type}.`);
-                    printOut(`New balance is ${this.formatToMaxFourDecimals(this.#balanceBrukskonto * this.#currency.value)}${this.#currency.denomination}.`);
-                    console.log("undefined else if")
-                } 
-            break
-            }
-
-            case typeACurrency: {
-                console.log("case 1")
-                    
-                const newCurrency = TAccount.currencyTypes[typeA].value;
-                const depositedAmount = aAmount * newCurrency;
-                if (this.#type == "Sparekonto"){
-                    this.#balanceSparekonto += aAmount;
-                    printOut(`Deposited ${this.formatToMaxFourDecimals(depositedAmount)}${TAccount.currencyTypes[typeA].denomination} to ${this.#type}.`);
-                    printOut(`New balance is ${this.formatToMaxFourDecimals(this.#balanceSparekonto * this.#currency.value)}${this.#currency.denomination}.`);
-                    console.log("newCurrency if")
-                } else if (this.#type == "Brukskonto") {
-                    this.#balanceBrukskonto += aAmount;
-                    printOut(`Deposited ${this.formatToMaxFourDecimals(depositedAmount)}${TAccount.currencyTypes[typeA].denomination} to ${this.#type}.`);
-                    printOut(`New balance is ${this.formatToMaxFourDecimals(this.#balanceBrukskonto * this.#currency.value)}${this.#currency.denomination}.`);
-                    console.log("newCurrency else if")
-                } 
-            break
-            }
+        if (typeA == undefined){
+            typeA = "NOK";
         }
+        const typeACurrency = TAccount.currencyTypes[typeA];
+        if (typeof typeA !== "undefined" && !(typeA in TAccount.currencyTypes)){
+            printOut(`Could not read currency`);
+            printOut(`${this.#type}, balance: ${this.formatToMaxFourDecimals(this.#balanceSparekonto)}${this.#currency.denomination}`);
+        } else {
+            switch (TAccount.currencyTypes[typeA]) {
+            case typeACurrency: {
+                const newCurrency = TAccount.currencyTypes[typeA].value;
+                const depositedAmountInNOK = aAmount / newCurrency;
+                if (this.#type == "Sparekonto"){
+                    this.#balanceSparekonto += depositedAmountInNOK;
+                    printOut(`Deposited ${this.formatToMaxFourDecimals(aAmount)}${TAccount.currencyTypes[typeA].denomination} to ${this.#type}.`);
+                    printOut(`New balance is ${this.formatToMaxFourDecimals(this.#balanceSparekonto * this.#currency.value)}${this.#currency.denomination}.`);
+                    console.log("newCurrency if");
+                } else if (this.#type == "Brukskonto") {
+                    this.#balanceBrukskonto += depositedAmountInNOK;
+                    printOut(`Deposited ${this.formatToMaxFourDecimals(depositedAmount)}${TAccount.currencyTypes[typeA].denomination} to ${this.#type}.`);
+                    printOut(`New balance is ${this.formatToMaxFourDecimals(this.#balanceBrukskonto / this.#currency.value)}${this.#currency.denomination}.`);
+                    console.log("newCurrency else if");
+                } 
+            break
+            }
+            }
         }
     }
 
     withdraw(aAmount, typeA) {
-        const typeACurrency = TAccount.currencyTypes[typeA]
-        const aAmountToCurrency = this.formatToMaxFourDecimals(aAmount * this.#currency.value);
-        
-        if (!(TAccount.currencyTypes[typeA])) {
+        if (typeA == undefined){
+            typeA = "NOK";
+        }
+        const typeACurrency = TAccount.currencyTypes[typeA];
+        const aAmountToCurrency = this.formatToMaxFourDecimals(aAmount * TAccount.currencyTypes[typeA].value);
+        let withdrawCount = 0;
+        console.log(typeACurrency);
+        if (typeof typeA !== "undefined" && !(typeA in TAccount.currencyTypes)){
             printOut(`Could not read currency`);
-            printOut(`${this.#type}, balance: ${this.#balanceSparekonto}${this.#currency.denomination}`)
+            printOut(`${this.#type}, balance: ${this.formatToMaxFourDecimals(this.#balanceSparekonto)}${this.#currency.denomination}`);
         } else {
-            console.log(typeACurrency)
-            switch (TAccount.currencyTypes[typeA]) {
-                case undefined || "NOK":{
-                    console.log("case withdraw case: undefined || NOK");
-                    if (this.#type == "Sparekonto"){
-                        this.#balanceSparekonto -= aAmount;
-                    printOut(`Withdrew ${this.aAmountToCurrency}${this.#currency.denomination} to ${this.#type}.`);
-                    printOut(`New balance is ${this.formatToMaxFourDecimals(this.#balanceSparekonto * this.#currency.value)}${this.#currency.denomination}.`);
-                    console.log("withdraw undefined if");
-                } else if (this.#type == "Brukskonto") {
-                    this.#balanceBrukskonto -= aAmount;
-                    printOut(`Withdrew ${this.aAmountToCurrency}${this.#currency.denomination} to ${this.#type}.`);
-                    printOut(`New balance is ${this.formatToMaxFourDecimals(this.#balanceSparekonto * this.#currency.value)}${this.#currency.denomination}.`);
-                    console.log("undefined else if");
-                }
-                break
-            }
-                case "Brukskonto": {        //Jeg er her!!!!!!
-                    this.#withdrawcount = 0;
-
-                    if (aAmount > this.#balanceBrukskonto) {
-                        printOut(`You cannot withdraw more than your current balance of ${this.#balanceBrukskonto}NOK.`);
+            switch (this.#type){
+                case "Brukskonto":{
+                    withdrawCount = 0;
+                    if (aAmountToCurrency > this.#balanceBrukskonto){
+                        printOut(`You can not withdraw an amount greater than your balance`);
+                        printOut(this.#type);
                     } else {
-                        this.#balanceBrukskonto -= aAmount; 
-                        printOut(`Withdrawing ${aAmountToCurrency}kr from ${this.#type}. New balance is ${this.formatToMaxFourDecimals(this.#balanceBrukskonto * this.#currency.value)}${this.#currency.denomination}.`);
+                        switch (TAccount.currencyTypes[typeA]){
+                            case typeACurrency: {
+                                this.#balanceBrukskonto -= aAmount / TAccount.currencyTypes[typeA].value;
+                                printOut(`Withdrew ${aAmount}${this.#currency.denomination} from ${this.#type}`);
+                                printOut(`New balance is ${this.formatToMaxFourDecimals(this.#balanceBrukskonto / this.#currency.value)}${this.#currency.denomination}.`);
+                                break
+                            }
+                        }
                     }
-                    break;
+                    break
                 }
-
-                case "Sparekonto": {
-                    if (this.#withdrawcount >= 3) {
-                        printOut(`You have reached the maximum number of withdrawals for ${this.#type}.`);
-                    } else if (aAmount > this.#balanceSparekonto) {
-                        printOut(`You cannot withdraw more than your current balance of ${this.formatToMaxFourDecimals(this.#balanceSparekonto * this.#currency.value)}${this.#currency.denomination}.`);
+                case "Sparekonto":{
+                    withdrawCount = 0;
+                    if (aAmountToCurrency > this.#balanceSparekonto){
+                        printOut(`You can not withdraw an amount greater than your balance`);
+                        printOut(this.#type);
                     } else {
-                        this.#withdrawcount++;
-                        this.#balanceSparekonto -= aAmount;
-                        printOut(`Withdrawing ${aAmountToCurrency}kr from ${this.#type}. New balance is ${this.formatToMaxFourDecimals(this.#balanceSparekonto * this.#currency.value)}${this.#currency.denomination}.`);
-                    }
-                    break;
-                }
+                        switch (TAccount.currencyTypes[typeA]){
+                            case undefined || "NOK":{
+                                withdrawCount ++;
+                                if (withdrawCount >= 3){
+                                    printOut(`You have reached the maximum number of withdrawals for ${this.#type}.`);
+                                }
+                                this.#balanceSparekonto -= aAmount;
+                                printOut(`Withdrew ${aAmount}${this.#currency.denomination.NOK} from ${this.#type}`);
+                                printOut(`New balance is ${this.formatToMaxFourDecimals(this.#balanceSparekonto / this.#currency.value)}${this.#currency.denomination.NOK}.`);
+                                break
+                            }
+                            case TAccount.currencyTypes[typeA]: {
+                                withdrawCount ++
+                                if (withdrawCount >= 3){
+                                    printOut(`You have reached the maximum number of withdrawals for ${this.#type}.`);
+                                }
+                                this.#balanceSparekonto -= aAmount / TAccount.currencyTypes[typeA].value;
+                                printOut(`Withdrew ${aAmount}${TAccount.currencyTypes[typeA].denomination} from ${this.#type}`);
+                                printOut(`New balance is ${this.formatToMaxFourDecimals(this.#balanceSparekonto / this.#currency.value)}${this.#currency.denomination}.`);
 
-                case "Pensjonskonto": {
-                        this.#withdrawcount = 0;
-                        printOut(`You cannot withdraw from your pensjonskonto.`);
-                        break;
+                                break
+                            }
+                        }
+                    }
+                    break
                 }
-            }
+                case "Pensjonskonto":{
+                    withdrawCount = 0;
+                    printOut(`You cannot withdraw from ${this.#type}`);
+                    break;
                 }
             }
         }
+    }
     
 
     transfer (typeA, typeB, aAmount){
@@ -213,10 +207,10 @@ class TAccount {
                     printOut(`You  can not transfer an amount greater than your balance. Your balance is ${this.#balanceBrukskonto}${this.#currency.denomination}.`);
                 } else {
                     printOut(`Transferring from Brukskonto to Sparekonto.`);
-                    this.#balanceBrukskonto = this.#balanceBrukskonto - aAmount
-                    this.#balanceSparekonto = this.#balanceSparekonto + aAmount
-                    printOut(`Brukskonto = ${this.#balanceBrukskonto * this.#currency.value}${this.#currency.denomination}.`)
-                    printOut(`Sparekonto = ${this.#balanceSparekonto * this.#currency.value}${this.#currency.denomination}.`)
+                    this.#balanceBrukskonto = this.#balanceBrukskonto - aAmount;
+                    this.#balanceSparekonto = this.#balanceSparekonto + aAmount;
+                    printOut(`Brukskonto = ${this.#balanceBrukskonto * this.#currency.value}${this.#currency.denomination}.`);
+                    printOut(`Sparekonto = ${this.#balanceSparekonto * this.#currency.value}${this.#currency.denomination}.`);
                     break
                 }
             }
@@ -224,30 +218,27 @@ class TAccount {
                 if(aAmount > this.#balanceSparekonto){
                     printOut(`You  can not transfer an amount greater than your balance. Your balance is ${this.#balanceSparekonto * this.#currency.value}${this.#currency.denomination}.`);
                     } else {
-                        printOut(`Transferring from  Sparekonto to Brukskonto.`)
-                        this.#balanceBrukskonto += aAmount
-                        this.#balanceSparekonto -= aAmount
-                        printOut(`Brukskonto = ${this.#balanceBrukskonto * this.#currency.value}${this.#currency.denomination}.`)
-                        printOut(`Sparekonto = ${this.#balanceSparekonto * this.#currency.value}${this.#currency.denomination}.`)
+                        printOut(`Transferring from  Sparekonto to Brukskonto.`);
+                        this.#balanceBrukskonto += aAmount;
+                        this.#balanceSparekonto -= aAmount;
+                        printOut(`Brukskonto = ${this.#balanceBrukskonto * this.#currency.value}${this.#currency.denomination}.`);
+                        printOut(`Sparekonto = ${this.#balanceSparekonto * this.#currency.value}${this.#currency.denomination}.`);
                         break
                     } 
             }
             case "Pensjonskonto":{
                 console.log("case 3");
-                printOut(`You can not transfer from or to you pensjonskonto.`)
-                printOut(`Please select other accounts.`)
+                printOut(`You can not transfer from or to you pensjonskonto.`);
+                printOut(`Please select other accounts.`);
                 break
             }
         }        
     }
 }
 
-/* I had a little fun whilst trying to understand how class works xD */
-
 const BankAccount = new TAccount("Brukskonto");
 printOut(`myAccount = ${BankAccount}`);
-BankAccount.setCurrency("USD");
-BankAccount.setType("Sparekonto");
+BankAccount.setType("Sparekonto")
 BankAccount.deposit(1, "NOK");
 BankAccount.deposit(1, "EUR");
 BankAccount.deposit(1, "USD");
@@ -260,11 +251,37 @@ BankAccount.deposit(1, "CAD");
 BankAccount.deposit(1, "THB");
 BankAccount.setCurrency("NOK");
 BankAccount.deposit(1, "faw");
+BankAccount.withdraw(1, "USD");
+BankAccount.withdraw(1);
 printOut(newLine);
 
-printOut("--- Part 7 ----------------------------------------------------------------------------------------------");
+printOut("--- Part 8 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
 
-console.log("v Part 7 v");
+console.log("v Part 8 v");
+printOut(`I belive this is part 8 in task 3-3.`);
+
+function extendString(text, maxSize, char, insertBefore) {
+    if (text.length < maxSize) {
+        let charsToInsert = maxSize - text.length;
+        let insertionString = char.repeat(charsToInsert);
+
+        if (insertBefore) {
+            text = insertionString + text;
+        } else {
+            text = text + insertionString;
+        }
+    }
+
+    printOut(text);
+    return text;
+}
+
+const string1 = prompt("string 1");;
+
+extendString(string1, 10, "-", true);
+extendString(string1, 12, "-", false);
+extendString(string1, 8, "-", true);
+extendString(string1, 10, "-", false);
 
 printOut(newLine);
