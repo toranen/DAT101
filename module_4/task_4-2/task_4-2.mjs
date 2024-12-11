@@ -60,20 +60,18 @@ function removeElement(names, index){
     }
 
     let removedWord = names.splice(index, 1);
-
+    printOut(`Array length is: ${names.length+1}`)
+    printOut(`The word: "${word}", at index ${wordIndex} is removed from the array. New array length is: ${names.length}`);
+    
     return {
         word, wordIndex, names, removedWord
     }
 }
 
 const index = prompt(`What element do you want to remove?`);
-removeElement(names, index);
+let result = removeElement(names, index);
+console.log(result)
 console.log(removeElement(names, index))
-
-// Jobber med å få til denne funksjonen!
-// Funksjonen fjerner først orde, så går den gjennom igjen og fjerner elementet på nytt igjen
-
-
 
 printOut(newLine);
 
