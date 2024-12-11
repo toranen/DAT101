@@ -71,20 +71,46 @@ function removeElement(names, index){
 const index = prompt(`What element do you want to remove?`);
 let result = removeElement(names, index);
 console.log(result)
-console.log(removeElement(names, index))
 
 printOut(newLine);
 
 printOut("--- Part 5 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
 console.log(`v Part 5 v`)
-printOut("Replace this with you answer!");
+
+let namesBoys = ["Jakob", "Lucas", "Emil", "Oskar", "Oliver", "William", "Filip", "Noah",
+"Elias", "Isak", "Henrik", "Aksel", "Kasper", "Mathias", "Jonas", "Tobias", "Liam", "Håkon", "Theodor", "Magnus"];
+let namesMerged = names.concat(namesBoys);
+
+printOut(`${namesMerged.join(" , ")}`);
+console.log(namesMerged, names, namesBoys);
+
 printOut(newLine);
 
 printOut("--- Part 6 ----------------------------------------------------------------------------------------------");
 /* Put your code below here!*/
 console.log(`v Part 6 v`)
-printOut("Replace this with you answer!");
+
+class TBook {
+    #title
+    #Author
+    #isbn
+
+    constructor(aTitle, aAuthor, aIsbn){
+        this.#title = aTitle;
+        this.#Author = sAuthor;
+        this.#isbn = sIsbn;
+    }
+
+    toString() {
+        if (initialTitle === " "){
+            return (`${this.#title}, ${this.#Author}, ${this.#isbn}`)
+        }
+    }
+
+
+}
+
 printOut(newLine);
 
 printOut("--- Part 7 ----------------------------------------------------------------------------------------------");
