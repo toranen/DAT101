@@ -102,19 +102,6 @@ class TBook {
         this.#isbn = aIsbn;
     }
 
-    toString() {
-        if (this.#title === "Harry Potter"){
-            console.log(`${book1}, Author: ${author1}, ISBN: ${isbn1}`);
-            return (`${book1}, Author: ${author1}, ISBN: ${isbn1}`);
-        } else if (this.#title === "Shogun"){
-            console.log(`${book2}, Author: ${author2}, ISBN: ${isbn2}`);
-            return (`${book2}, Author: ${author2}, ISBN: ${isbn2}`);
-        } else if (this.#title === "Looking Forward"){
-            console.log(`${book3}, Author: ${author3}, ISBN: ${isbn3}`);
-            return (`${book3}, Author: ${author3}, ISBN: ${isbn3}`);
-        }
-    }
-    
     setBook(aTitle) {
 
         switch (aTitle){
@@ -135,6 +122,7 @@ class TBook {
                 let book2 = this.#title;
                 let author2 = this.#Author
                 let isbn2 = this.#isbn
+                this.toString(aTitle)
                 break
             }
             case "Looking Forward": {
@@ -144,7 +132,6 @@ class TBook {
                 let book3 = this.#title;
                 let author3 = this.#Author;
                 let isbn3 = this.#isbn;
-                console.log(aTitle);
                 break
             }
             default: {
@@ -153,18 +140,28 @@ class TBook {
             }
         }
     }
+
+    toString(aTitle) {
+        if (aTitle === "Harry Potter"){
+            printOut(`Harry Potter, Author: J. K. Rowling, ISBN: harrypotterISBN`);
+            return (`Harry Potter, Author: J. K. Rowling, ISBN: harrypotterISBN`);
+        } else if (aTitle === "Shogun"){
+            printOut(`Shogun, Author: James Clavell, ISBN: shogunISBN`);
+            return (`Shogun, Author: James Clavell, ISBN: shogunISBN`);
+        } else if (aTitle === "Looking Forward"){
+            printOut(`Looking Forward, Author: Marcia Willett, ISBN: lookingforwardISBN`);
+            return (`Looking Forward, Author: Marcia Willett, ISBN: lookingforwardISBN`);
+        }
+    }
 }
 
-const bookShelf = new TBook("Harry Potter");
-bookShelf.setBook("Harry Potter")
-console.log(bookShelf);
-bookShelf.setBook("Shogun");
-console.log(bookShelf);
-bookShelf.setBook("Looking Forward");
-console.log(bookShelf);
-bookShelf.setBook("En Pingles Dagbok");
-console.log(bookShelf);
-
+const classTBook = ["Harry Potter", "Shogun", "Looking Forward"];
+const bookshelf = new TBook("Harry Potter")
+for (let i = 0; i < classTBook.length; i++){
+    console.log(bookshelf.setBook(classTBook[i]));
+    console.log(`${classTBook[i]}`);
+    console.log(i)
+}
 
 
 printOut(newLine);
