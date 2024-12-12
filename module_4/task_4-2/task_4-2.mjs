@@ -98,18 +98,74 @@ class TBook {
 
     constructor(aTitle, aAuthor, aIsbn){
         this.#title = aTitle;
-        this.#Author = sAuthor;
-        this.#isbn = sIsbn;
+        this.#Author = aAuthor;
+        this.#isbn = aIsbn;
     }
 
     toString() {
-        if (initialTitle === " "){
-            return (`${this.#title}, ${this.#Author}, ${this.#isbn}`)
+        if (this.#title === "Harry Potter"){
+            console.log(`${book1}, Author: ${author1}, ISBN: ${isbn1}`);
+            return (`${book1}, Author: ${author1}, ISBN: ${isbn1}`);
+        } else if (this.#title === "Shogun"){
+            console.log(`${book2}, Author: ${author2}, ISBN: ${isbn2}`);
+            return (`${book2}, Author: ${author2}, ISBN: ${isbn2}`);
+        } else if (this.#title === "Looking Forward"){
+            console.log(`${book3}, Author: ${author3}, ISBN: ${isbn3}`);
+            return (`${book3}, Author: ${author3}, ISBN: ${isbn3}`);
         }
     }
+    
+    setBook(aTitle) {
 
-
+        switch (aTitle){
+            
+            case "Harry Potter": {
+                this.#title = "Harry Potter";
+                this.#Author = "J. K. Rowling";
+                this.#isbn = "harrypotterISBN"; //9780545069670
+                let book1 = this.#title;
+                let author1 = this.#Author
+                let isbn1 = this.#isbn
+                break
+            }
+            case "Shogun": {
+                this.#title = "Shogun";
+                this.#Author = "James Clavell";
+                this.#isbn = "shogunISBN";//9780340203163
+                let book2 = this.#title;
+                let author2 = this.#Author
+                let isbn2 = this.#isbn
+                break
+            }
+            case "Looking Forward": {
+                this.#title = "Looking Forward";
+                this.#Author = "Marcia Willett";
+                this.#isbn = "lookingforwardISBN";//9780755385164
+                let book3 = this.#title;
+                let author3 = this.#Author;
+                let isbn3 = this.#isbn;
+                console.log(aTitle);
+                break
+            }
+            default: {
+                console.log(`This book is not in the bookshelf. Please try another book.`);
+                break
+            }
+        }
+    }
 }
+
+const bookShelf = new TBook("Harry Potter");
+bookShelf.setBook("Harry Potter")
+console.log(bookShelf);
+bookShelf.setBook("Shogun");
+console.log(bookShelf);
+bookShelf.setBook("Looking Forward");
+console.log(bookShelf);
+bookShelf.setBook("En Pingles Dagbok");
+console.log(bookShelf);
+
+
 
 printOut(newLine);
 
