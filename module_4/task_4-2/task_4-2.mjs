@@ -12,8 +12,6 @@ for (let i = 0; numberList[i] <= numberList[19]; i++) {
     printOut(`${numberList[i]}`);
 }
 
-
-
 printOut(newLine);
 
 printOut("--- Part 2 ----------------------------------------------------------------------------------------------");
@@ -93,12 +91,12 @@ console.log(`v Part 6 v`)
 
 class TBook {
     #title
-    #Author
+    #author
     #isbn
 
     constructor(aTitle, aAuthor, aIsbn){
         this.#title = aTitle;
-        this.#Author = aAuthor;
+        this.#author = aAuthor;
         this.#isbn = aIsbn;
     }
 
@@ -108,30 +106,32 @@ class TBook {
             
             case "Harry Potter": {
                 this.#title = "Harry Potter";
-                this.#Author = "J. K. Rowling";
-                this.#isbn = "harrypotterISBN"; //9780545069670
-                let book1 = this.#title;
-                let author1 = this.#Author
-                let isbn1 = this.#isbn
+                this.#author = "J. K. Rowling";
+                this.#isbn = "9780545069670"; //9780545069670
+                let book = this.#title;
+                let author = this.#author
+                let isbn = this.#isbn
+                this.toString(this.#title, this.#author, this.#isbn)
                 break
             }
             case "Shogun": {
                 this.#title = "Shogun";
-                this.#Author = "James Clavell";
-                this.#isbn = "shogunISBN";//9780340203163
+                this.#author = "James Clavell";
+                this.#isbn = "9780340203163";//9780340203163
                 let book2 = this.#title;
-                let author2 = this.#Author
+                let author2 = this.#author
                 let isbn2 = this.#isbn
-                this.toString(aTitle)
+                this.toString(this.#title, this.#author, this.#isbn)
                 break
             }
             case "Looking Forward": {
                 this.#title = "Looking Forward";
-                this.#Author = "Marcia Willett";
-                this.#isbn = "lookingforwardISBN";//9780755385164
+                this.#author = "Marcia Willett";
+                this.#isbn = "9780755385164";//9780755385164
                 let book3 = this.#title;
-                let author3 = this.#Author;
+                let author3 = this.#author;
                 let isbn3 = this.#isbn;
+                this.toString(this.#title, this.#author, this.#isbn)
                 break
             }
             default: {
@@ -141,15 +141,15 @@ class TBook {
         }
     }
 
-    toString(aTitle) {
-        if (aTitle === "Harry Potter"){
-            printOut(`Harry Potter, Author: J. K. Rowling, ISBN: harrypotterISBN`);
+    toString() {
+        if (this.#title === "Harry Potter"){
+            printOut(`${this.#title}, Author: ${this.#author}, ISBN: ${this.#isbn}`);
             return (`Harry Potter, Author: J. K. Rowling, ISBN: harrypotterISBN`);
-        } else if (aTitle === "Shogun"){
-            printOut(`Shogun, Author: James Clavell, ISBN: shogunISBN`);
+        } else if (this.#title === "Shogun"){
+            printOut(`${this.#title}, Author: ${this.#author}, ISBN: ${this.#isbn}`);
             return (`Shogun, Author: James Clavell, ISBN: shogunISBN`);
-        } else if (aTitle === "Looking Forward"){
-            printOut(`Looking Forward, Author: Marcia Willett, ISBN: lookingforwardISBN`);
+        } else if (this.#title === "Looking Forward"){
+            printOut(`${this.#title}, Author: ${this.#author}, ISBN: ${this.#isbn}`);
             return (`Looking Forward, Author: Marcia Willett, ISBN: lookingforwardISBN`);
         }
     }
