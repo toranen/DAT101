@@ -10,8 +10,45 @@
       <span id="txtOut" style="white-space: nowrap"></span>
     </div>
     <ol>
-      <li>[Write the question here, and copy this for more questions]</li>
-      <p>[Write your answer here, and copy this for more answers]</p>
+      <li>[What is an array? A short and concise answer is expected here!]</li>
+      <p>[An array is a type of "list", but we say it is a data structure that holds a collection of elements. Each element is accessed by its index. The first element is at index 0.]</p>
+      <p>.</p>
+      <li>[What does it mean to "hardcode" when we talk about programming? (In English, it's called "hard
+        coding", "hard-coding", or "hardcoding").]</li>
+      <p>[The meaning "hardcode" means to directly alter the code, embedding a fixed value or setting in a programs source code. This codes are hard to change without altering the code.]</p>
+      <p>.</p>
+      <li>[Explain in plain text what happens in task 3, and how we can traverse (iterate) the array when we
+        (humans) don't "know" how long the array is.]</li>
+      <p>[In task 3 we use the arrays ".length" property instead of a fixed value. This assures that the for loop reach each element in the array. (i < array.length).]</p>
+      <p>.</p>
+      <li>[Why is it beneficial to store instances of a class in arrays, as in task 4?]</li>
+      <p>[Storing instances of a class in an array makes it easier to manage and process multiple objects of the same type. It also simplifies access to each object via its index.]</p>
+      <p>.</p>
+      <li>[ Try your best to explain the EWeekDays object from task 7. How do we use the "value" attribute, for
+        example? In what way do "WeekDay", "Workdays", and "Weekends" differ from each other? If we
+        wanted to create a new element "WorkoutDays", which would contain "Monday", "Wednesday", and
+        "Thursday", how would it ideally look? (I will choose the best answer to this task and reward it with
+        pizza in the cafeteria right after New Year. Remember to mark in your submission if you want to
+        participate in the competition!)]</li>
+      <p>[The EWeekDays object contains key-value pairs: name- attribute holds a label like "Monday", "Tuesday", etc.]</p>
+      <p>[value- attribute is a number that often represent bitwise flags, allowing multiple days to be grouped together under a single label.]</p>
+      <p>[The element "workDays" represent Monday to Friday with a combined value indicating all five days.]</p>
+      <p>[If we wanted to create a new "WorkOutDays" element, it would look something like: (WorkoutDays: {value: 0x01 + 0x04 + 0x08, name: "WorkoutDays"})]</p>
+      <p>.</p>
+      <li> In task 8, we will use a "callback" routine when sorting. Explain how such a "callback" routine works.]</li>
+      <p>[a callback routine in this task, the callback function wil continue until the whole array is sorted. Javascript mostly uses the quicksort algorithm or a variation of quicksort]</p>
+      <p>[The .sort((a, b) => a - b) function will first save index 0 as a, and index 1 as b. Then it will see if the function is positive (if it is negative index 0 stay, if it is positive index 0 and 1 swap places).]</p>
+      <p>[Then the sort function repeat again, but this time it takes index 1 as a, and index 2 as b. The function wil continue until the whole array is sorted.]</p>
+      <p>[if the array looks like this: [12, 9, 5, 10, 2], it will look like [9, 5, 10, 2, 12] after one passthrough. this will continue until the array is completely sorted]</p>
+      <p>.</p>
+      <li>[What happens in the sorting routines you have created? Try to explain how the array can figure out
+        if an element should come before or after another. The best way to answer this is to actually print
+        both parameters each time the sorting routine runs.]</li>
+      <p>[explanation in the previous answer]</p>
+      <p>.</p>
+      <li>[In task 10, we will create an array with rows and columns. Explain what the first element of the array
+        contains]</li>
+      <p>[The first element contains the first row. It would look something like (["Row 1, Col 1", "Row 1, Col 2", ..., "Row 1, Col 9"])]</p>
     </ol>
     <script type="module" src="./task_4-2.mjs" defer></script>
   </body>
