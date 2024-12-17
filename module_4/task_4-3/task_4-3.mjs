@@ -1,5 +1,7 @@
 "use strict";
 
+const dateStart = Date.now();
+
 const CarTypes = [
   { value: 1, caption: "Aston Martin" },
   { value: 2, caption: "Bentley" },
@@ -145,3 +147,7 @@ window.onload = function () {
         }
     });
 };
+
+const dateStop = Date.now();
+const dateTime = dateStart - dateStop;
+console.log(dateTime);
