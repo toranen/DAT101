@@ -47,9 +47,8 @@ const MovieGenre = [
 
 //--- Part 1 ----------------------------------------------------------------------------------------------
 
-// Sørg for at koden kun kjøres etter at DOM-en er lastet
 window.onload = function () {
-    // Part 1: Rectangle Calculations
+    // Part 1:
     document.getElementById("cmbTask1Calculate").addEventListener("click", function () {
         const width = parseFloat(document.getElementById("txtTask1Width").value);
         const height = parseFloat(document.getElementById("txtTask1Height").value);
@@ -62,7 +61,7 @@ window.onload = function () {
         }
     });
 
-    // Part 2: Dynamic Word List
+    // Part 2:
     const task2Words = [];
     document.getElementById("txtTask2Word").addEventListener("keypress", function (event) {
         if (event.key === "Enter") {
@@ -76,15 +75,14 @@ window.onload = function () {
         }
     });
 
-    // Part 3: Checkbox Evaluation
+    // Part 3:
     document.getElementById("cmbTask3Evaluate").addEventListener("click", function () {
         const checkboxes = document.querySelectorAll("input[type='checkbox']");
         const selected = Array.from(checkboxes).filter(checkbox => checkbox.checked).map(checkbox => checkbox.value);
         document.getElementById("txtTask3Output").innerText = `Selected: ${selected.join(", ")}`;
     });
 
-    // Part 4: Radio Button Selection
-    const CarTypes = ["Sedan", "SUV", "Truck", "Convertible"];
+    // Part 4:
     const divTask4Cars = document.getElementById("divTask4Cars");
     CarTypes.forEach(car => {
         const radio = document.createElement("input");
@@ -102,14 +100,13 @@ window.onload = function () {
         document.getElementById("txtTask4Output").innerText = selected ? `Selected car: ${selected.value}` : "No car selected.";
     });
 
-    // Part 5: Dropdown Selection
+    // Part 5:
     document.getElementById("selectTask5Animals").addEventListener("change", function () {
         const dropdown = document.getElementById("selectTask5Animals");
         document.getElementById("txtTask5Output").innerText = `Selected: ${dropdown.value}`;
     });
 
-    // Part 6: Dynamic Dropdown & Selection
-    const GirlsNames = ["Emma", "Olivia", "Ava", "Sophia", "Isabella"];
+    // Part 6:
     const selectTask6Girls = document.getElementById("selectTask6Girls");
     GirlsNames.forEach(name => {
         const option = document.createElement("option");
@@ -122,8 +119,7 @@ window.onload = function () {
         document.getElementById("txtTask6Output").innerText = `Selected: ${dropdown.value}`;
     });
 
-    // Part 7: Table Population
-    const MovieGenre = ["Action", "Comedy", "Drama", "Horror"];
+    // Part 7:
     const selectMovieGenre = document.getElementById("selectMovieGenre");
     MovieGenre.forEach(genre => {
         const option = document.createElement("option");
